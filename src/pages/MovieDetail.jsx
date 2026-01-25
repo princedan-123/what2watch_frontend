@@ -1,16 +1,17 @@
+/* Page for a specific movie */
 import { useQuery } from "@tanstack/react-query";
 import getMovie from "../queries/getMovie";
 import FetchError from "../errorPages/FetchError";
 import "../errorPages/errorPage.css";
 import spinner from "../assets/spinner.svg";
-import "./media.css";
+import "../styles/media.css";
 import { useParams } from "react-router-dom";
 import Media from "../components/Media";
 import getMovieTrailer from "../queries/getMovieTrailer";
-export default function MediaDetails() {
+export default function MovieDetails() {
   const { id } = useParams();
   const { data, isLoading, isFetching, isError } = useQuery({
-    queryKey: ["media", id],
+    queryKey: ["movie", id],
     queryFn: getMovie,
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 30,

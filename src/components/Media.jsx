@@ -1,10 +1,14 @@
-import "../pages/media.css";
-import "../index.css";
+/* Reusable component to display a specific movie/tvshow */
+import "../styles/media.css";
+import "../styles/index.css";
 import { useState } from "react";
-import spinner from "../assets/spinner.svg";
-import errorImage from "../assets/error-image.jpg";
+import { useLocation } from "react-router-dom";
 
 export default function Media({ mediaData, trailers }) {
+  const { pathname } = useLocation();
+  const isTvseries = pathname.startsWith("/tvseries");
+  console.log(isTvseries);
+  console.log(pathname);
   const [clicked, setClicked] = useState(false);
   const moviePosterPath = `https://image.tmdb.org/t/p/w342${mediaData.poster_path}`;
   function handleInfo() {
@@ -36,10 +40,12 @@ export default function Media({ mediaData, trailers }) {
               origin country: {mediaData.origin_country.map((origin) => origin)}
             </li>
             <li>original language: {mediaData.original_language}</li>
-            <li>revenue: {mediaData.revenue}</li>
-            <li>runtime: {mediaData.runtime}</li>
+            {isTvseries ? false : <li>revenue: mediaData.revenue</li>}
+            <li>rated_adult: {mediaData.adult ? "Yes" : "No"}</li>
+            {isTvseries ? false : <li>runtime: {mediaData.runtime}</li>}
+            <li>Number of seasons: {mediaData.number_of_seasons}</li>
             <li>status: {mediaData.status}</li>
-            <li>budget: {mediaData.budget}</li>
+            {isTvseries ? false : <li>budget: {mediaData.budget}</li>}
             <li>vote count: {mediaData.vote_count}</li>
             <li>average vote: {mediaData.vote_average}</li>
           </ul>

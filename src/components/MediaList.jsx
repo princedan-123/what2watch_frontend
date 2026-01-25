@@ -1,3 +1,4 @@
+/* Reusable component for a grid of media content */
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 export default function MediaList(props) {
@@ -7,7 +8,11 @@ export default function MediaList(props) {
   const mediaId = props.id;
   return (
     <>
-      <NavLink to={isMovie ? `/movies/movie/${mediaId}` : `tvshow/${mediaId}`}>
+      <NavLink
+        to={
+          isMovie ? `/movies/movie/${mediaId}` : `/tvseries/tvshow/${mediaId}`
+        }
+      >
         <section>
           <section
             className="media-item"

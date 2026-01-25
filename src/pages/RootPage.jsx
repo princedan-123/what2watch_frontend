@@ -4,27 +4,38 @@ import { useLocation } from "react-router-dom";
 
 export default function RootPage() {
   const { pathname } = useLocation();
-  const isTvseries = pathname.startsWith("/tvseries") ? true : false;
+  const isTvseries = pathname.startsWith("/tvseries");
   return (
     <main>
       <MainHeader />
       <section className="categories">
         <NavLink
           to={
-            isTvseries ? "/tvseries/trending-series" : "movies/trending-movies"
+            isTvseries ? "/tvseries/popular-series" : "movies/trending-movies"
           }
           className="button"
         >
-          Trending
+          {isTvseries ? false : "Trending"}
         </NavLink>
-        <NavLink to="movies/popular-movies" className="button">
+        <NavLink
+          to={isTvseries ? "/tvseries/popular-series" : "movies/popular-movies"}
+          className="button"
+        >
           Popular
         </NavLink>
-        <NavLink to="movies/upcoming-movies" className="button">
+        <NavLink
+          to={
+            isTvseries ? "/tvseries/upcoming-series" : "movies/upcoming-movies"
+          }
+          className="button"
+        >
           Upcoming
         </NavLink>
-        <NavLink to="movies/now-playing" className="button">
-          Now Playing
+        <NavLink
+          to={isTvseries ? "/tvseries/now-series" : "movies/now-playing"}
+          className="button"
+        >
+          {isTvseries ? false : "Now Playing"}
         </NavLink>
       </section>
       <section>

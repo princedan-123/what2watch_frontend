@@ -1,17 +1,18 @@
+/* Page for popular tvshows */
 import MediaList from "../components/MediaList";
 import { useQuery } from "@tanstack/react-query";
 import FetchError from "../errorPages/FetchError";
 import "../errorPages/errorPage.css";
 import spinner from "../assets/spinner.svg";
 import { useState } from "react";
-import "./media.css";
-import getTrendingSeries from "../queries/getTrendingSeries";
+import "../styles/media.css";
+import getUpcomingTvseries from "../queries/getUpcomingTvseries";
 
-export default function TrendingTvseries() {
+export default function UpcomingTvseries() {
   const [currentPage, setCurrentPage] = useState(1);
   const { data, isLoading, isFetching, isError } = useQuery({
-    queryKey: ["movies", "trending-tvseries", currentPage],
-    queryFn: getTrendingSeries,
+    queryKey: ["series", "upcoming-tvseries", currentPage],
+    queryFn: getUpcomingTvseries,
     staleTime: 1000 * 60 * 30,
     refetchOnWindowFocus: false,
     keepPreviousData: true,
@@ -45,14 +46,14 @@ export default function TrendingTvseries() {
   return (
     <>
       <section className="media-list">
-        {data.results.map((movie) => (
+        {data.results.map((tvshow) => (
           <MediaList
-            key={movie.id}
-            id={movie.id}
-            posterPath={movie.poster_path}
-            title={movie.title}
-            releaseDate={movie.release_date}
-            popularity={movie.popularity}
+            key={tvshow.id}
+            id={tvshow.id}
+            posterPath={tvshow.poster_path}
+            title={tvshow.name}
+            releaseDate={tvshow.first_air_date}
+            popularity={tvshow.popularity}
           />
         ))}
       </section>

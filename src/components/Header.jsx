@@ -1,7 +1,6 @@
 import { NavLink, Form, Outlet } from "react-router-dom";
 import appLogo from "../assets/logo.png";
 import Movies from "../pages/RootPage";
-import Tvseries from "../pages/Tvseries";
 import { useLocation } from "react-router-dom";
 export default function MainHeader() {
   const { pathname } = useLocation();

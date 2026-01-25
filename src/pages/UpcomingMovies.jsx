@@ -4,7 +4,7 @@ import FetchError from "../errorPages/FetchError";
 import "../errorPages/errorPage.css";
 import spinner from "../assets/spinner.svg";
 import { useState } from "react";
-import "./media.css";
+import "../styles/media.css";
 import getUpcomingMovies from "../queries/getUpcomingMovies";
 
 export default function UpcomingMovies() {

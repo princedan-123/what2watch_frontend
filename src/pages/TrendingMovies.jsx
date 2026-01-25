@@ -1,10 +1,11 @@
+/* Page for Trending Movies */
 import MediaList from "../components/MediaList";
 import { useQuery } from "@tanstack/react-query";
 import FetchError from "../errorPages/FetchError";
 import "../errorPages/errorPage.css";
 import spinner from "../assets/spinner.svg";
 import { useState } from "react";
-import "./media.css";
+import "../styles/media.css";
 import getTrendingMovies from "../queries/getTrendingMovies";
 
 export default function TrendingMovies() {

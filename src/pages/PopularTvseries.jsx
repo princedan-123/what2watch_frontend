@@ -1,4 +1,4 @@
-import getPopularMovies from "../queries/getPopularMovies";
+/* Page for popular tvshows */
 import MediaList from "../components/MediaList";
 import { useQuery } from "@tanstack/react-query";
 import FetchError from "../errorPages/FetchError";
@@ -6,17 +6,17 @@ import "../errorPages/errorPage.css";
 import spinner from "../assets/spinner.svg";
 import { useState } from "react";
 import "../styles/media.css";
+import getPopularSeries from "../queries/getPopularTvseries";
 
-export default function PopularMovies() {
+export default function PopularTvseries() {
   const [currentPage, setCurrentPage] = useState(1);
   const { data, isLoading, isFetching, isError } = useQuery({
-    queryKey: ["movies", "popular-movies", currentPage],
-    queryFn: getPopularMovies,
+    queryKey: ["series", "popular-tvseries", currentPage],
+    queryFn: getPopularSeries,
     staleTime: 1000 * 60 * 30,
     refetchOnWindowFocus: false,
     keepPreviousData: true,
   });
-
   if (isLoading) {
     return (
       <div className="spinner">
@@ -46,14 +46,14 @@ export default function PopularMovies() {
   return (
     <>
       <section className="media-list">
-        {data.results.map((movie) => (
+        {data.results.map((tvshow) => (
           <MediaList
-            key={movie.id}
-            id={movie.id}
-            posterPath={movie.poster_path}
-            title={movie.title}
-            releaseDate={movie.release_date}
-            popularity={movie.popularity}
+            key={tvshow.id}
+            id={tvshow.id}
+            posterPath={tvshow.poster_path}
+            title={tvshow.name}
+            releaseDate={tvshow.first_air_date}
+            popularity={tvshow.popularity}
           />
         ))}
       </section>

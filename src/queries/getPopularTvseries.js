@@ -1,4 +1,4 @@
-export default async function getTrendingSeries({ queryKey }) {
+export default async function getPopularSeries({ queryKey }) {
   const [, , currentPage] = queryKey;
   const endpoint = `https://what2watch-1gh0.onrender.com/tvshow/popular?page=${currentPage}`;
   const result = await fetch(endpoint);

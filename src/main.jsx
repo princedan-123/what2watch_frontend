@@ -1,10 +1,10 @@
 import NowPlaying from "./pages/NowPlaying";
 import UpcomingMovies from "./pages/UpcomingMovies";
 import { createRoot } from "react-dom/client";
-import TrendingTvseries from "./pages/TrendingTvseries";
+import PopularTvseries from "./pages/PopularTvseries";
 import TrendingMovies from "./pages/TrendingMovies";
 import { Navigate } from "react-router-dom";
-import "./index.css";
+import "./styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   createBrowserRouter,
@@ -13,8 +13,10 @@ import {
   Route,
 } from "react-router-dom";
 import PopularMovies from "./pages/PopularMovies";
-import MediaDetails from "./pages/MediaDetails";
+import MovieDetails from "./pages/MovieDetail";
 import RootPage from "./pages/RootPage";
+import TvshowDetails from "./pages/TvshowDetails";
+import UpcomingTvseries from "./pages/UpcomingTvseries";
 
 const routeData = createBrowserRouter(
   createRoutesFromElements(
@@ -28,11 +30,13 @@ const routeData = createBrowserRouter(
         <Route path="movies/upcoming-movies" element={<UpcomingMovies />} />
         <Route path="movies/popular-movies" element={<PopularMovies />} />
         <Route path="movies/now-playing" element={<NowPlaying />} />
-        <Route path="movies/movie/:id" element={<MediaDetails />} />
+        <Route path="movies/movie/:id" element={<MovieDetails />} />
       </Route>
       <Route path="/tvseries" element={<RootPage />}>
-        <Route index element={<Navigate to="trending-series" />} />
-        <Route path="trending-series" element={<TrendingTvseries />} />
+        <Route index element={<Navigate to="popular-series" />} />
+        <Route path="popular-series" element={<PopularTvseries />} />
+        <Route path="upcoming-series" element={<UpcomingTvseries />} />
+        <Route path="tvshow/:id" element={<TvshowDetails />} />
       </Route>
     </>,
   ),
