@@ -11,6 +11,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px; /* base font size */
+  height: 100%;
 }
 
 body {
@@ -45,9 +46,9 @@ a {
 
 .button {
   background-color: #e5e5e5;
-  border: 1px solid #e5e5e5;
-  padding: 7px;
-  border-radius: 12px;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 5px;
   cursor: pointer;
   color: #0f172a;
   font-size: 0.9rem;
@@ -83,19 +84,41 @@ nav.show-selection {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-evenly;
   gap: 5px;
   margin: var(--button-margin);
   padding: var(--button-padding);
+  height: 100px;
 }
 a.active {
-  background-color: var(--active-button-bg-color);
+  background-color: #d35400;
   color: var(--active-button-text-color);
-  padding: 5px;
+  padding: 7px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #e5e5e5;
+  font-size: 0.9rem;
 }
 .active-button {
-  background-color: var(--active-button-bg-color);
+  background-color: #d35400;
   color: var(--active-button-text-color);
-  padding: 5px;
+  padding: 7px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #e5e5e5;
+  font-size: 0.9rem;
+}
+@media (max-width: 500px) {
+  .active-button {
+    background-color: #d35400;
+    font-size: 0.5rem;
+  }
+  a.active {
+    font-size: 0.5rem;
+  }
+  .button {
+    font-size: 0.5rem;
+  }
 }
 .form {
   display: flex;

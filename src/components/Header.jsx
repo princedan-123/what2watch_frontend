@@ -15,12 +15,12 @@ export default function MainHeader() {
         </nav>
       </header>
       <nav className="show-selection">
-        <NavLink to="/" className={isMovie ? "button active-button" : "button"}>
+        <NavLink to="/" className={isMovie ? "active-button" : "button"}>
           Movies
         </NavLink>
         <NavLink
           to="tvseries"
-          className={isTvseries ? "button active-button" : "button"}
+          className={isTvseries ? "active-button" : "button"}
         >
           Tv series
         </NavLink>
