@@ -115,13 +115,13 @@ a.active {
 @media (max-width: 500px) {
   .active-button {
     background-color: #d35400;
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
   a.active {
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
   .button {
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
 }
 .form {
