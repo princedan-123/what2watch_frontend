@@ -38,6 +38,10 @@ textarea,
 select {
   font: inherit;
 }
+.main-header {
+  display: flex;
+  flex-direction: column;
+}
 
 a {
   text-decoration: none;

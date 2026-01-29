@@ -7,7 +7,7 @@ export default function MainHeader() {
   const isTvseries = pathname.startsWith("/tvseries") ? true : false;
   const isMovie = pathname.startsWith("/movie") ? true : false;
   return (
-    <>
+    <header className="main-header">
       <header className="header">
         <img src={appLogo} className="app-logo" />
         <nav>
@@ -33,6 +33,6 @@ export default function MainHeader() {
           </button>
         </Form>
       </section>
-    </>
+    </header>
   );
 }
