@@ -125,9 +125,17 @@ a.active {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+  padding: 10px;
 }
 .search-form {
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px;
+  max-width: 420px;
+  width: 100%;
+  gap: 6px;
+  border-width: 1px;
 }
 .categories {
   display: flex;

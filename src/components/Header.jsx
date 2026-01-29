@@ -27,7 +27,7 @@ export default function MainHeader() {
       </nav>
       <section>
         <Form className="form">
-          <input type="text" placeholder="🔍" className="search-form" />
+          <input type="text" className="search-form" />
           <button type="submit" className="button">
             Search
           </button>
