@@ -46,7 +46,7 @@ export default function UpcomingTvseries() {
   return (
     <>
       <section className="media-list">
-        {data.results.map((tvshow) => (
+        {data.results?.map((tvshow) => (
           <MediaList
             key={tvshow.id}
             id={tvshow.id}

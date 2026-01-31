@@ -34,10 +34,12 @@ export default function Media({ mediaData, trailers }) {
         {clicked && (
           <ul className="info-list">
             <li>
-              genres: {mediaData.genres.map((genres) => genres.name).join(", ")}
+              genres:{" "}
+              {mediaData.genres?.map((genres) => genres.name).join(", ")}
             </li>
             <li>
-              origin country: {mediaData.origin_country.map((origin) => origin)}
+              origin country:{" "}
+              {mediaData.origin_country?.map((origin) => origin)}
             </li>
             <li>original language: {mediaData.original_language}</li>
             {isTvseries ? false : <li>revenue: mediaData.revenue</li>}
@@ -54,7 +56,7 @@ export default function Media({ mediaData, trailers }) {
       <section className="video-clips">
         <h2>Video clips/trailers</h2>
         <section className="iframe-container">
-          {trailers.data.map((clip) => (
+          {trailers.data?.map((clip) => (
             <div>
               <iframe
                 key={clip.link}

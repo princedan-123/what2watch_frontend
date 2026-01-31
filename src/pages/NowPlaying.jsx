@@ -46,7 +46,7 @@ export default function NowPlaying() {
   return (
     <>
       <section className="media-list">
-        {data.results.map((movie) => (
+        {data.results?.map((movie) => (
           <MediaList
             key={movie.id}
             id={movie.id}
