@@ -81,6 +81,8 @@ ol {
 .logo-text,
 .logo-image {
   display: flex;
+  font-family: "Inter" sans-serif;
+  font-weight: bold;
 }
 .sign-up-button {
   padding: var(--button-padding);
