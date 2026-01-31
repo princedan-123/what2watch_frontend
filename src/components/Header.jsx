@@ -1,4 +1,4 @@
-import { NavLink, Form, Outlet } from "react-router-dom";
+import { Link, NavLink, Form, Outlet } from "react-router-dom";
 import appLogo from "../assets/logo.png";
 import Movies from "../pages/RootPage";
 import { useLocation } from "react-router-dom";
@@ -9,10 +9,12 @@ export default function MainHeader() {
   return (
     <header className="main-header">
       <header className="header">
-        <img src={appLogo} className="app-logo" />
-        <nav>
-          <button className="sign-up-button">Sign Up</button>
-        </nav>
+        <Link className="app-logo">
+          <div className="logo-text">what2</div>
+          <div>
+            <img src={appLogo} alt="logo-icon" className="logo-image" />
+          </div>
+        </Link>
       </header>
       <nav className="show-selection">
         <NavLink to="/" className={isMovie ? "active-button" : "button"}>

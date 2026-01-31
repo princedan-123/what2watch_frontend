@@ -70,10 +70,17 @@ ol {
   --button-margin: 10px 5px;
 }
 .app-logo {
-  width: 80px;
+  display: flex;
+  width: 100px;
   height: auto;
-  padding: 10px;
-  margin: var(--button-margin);
+  padding: 0px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  color: #d35400;
+}
+.logo-text,
+.logo-image {
+  display: flex;
 }
 .sign-up-button {
   padding: var(--button-padding);
@@ -115,13 +122,13 @@ a.active {
 @media (max-width: 500px) {
   .active-button {
     background-color: #d35400;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   a.active {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .button {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 .form {
