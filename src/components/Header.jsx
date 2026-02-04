@@ -2,6 +2,7 @@ import { Link, NavLink, Form, Outlet } from "react-router-dom";
 import appLogo from "../assets/logo.png";
 import Movies from "../pages/RootPage";
 import { useLocation } from "react-router-dom";
+import SearchForm from "./SearchForm";
 export default function MainHeader() {
   const { pathname } = useLocation();
   const isTvseries = pathname.startsWith("/tvseries") ? true : false;
@@ -27,14 +28,7 @@ export default function MainHeader() {
           Tv series
         </NavLink>
       </nav>
-      <section>
-        <Form className="form">
-          <input type="text" className="search-form" />
-          <button type="submit" className="button">
-            Search
-          </button>
-        </Form>
-      </section>
+      <SearchForm />
     </header>
   );
 }
