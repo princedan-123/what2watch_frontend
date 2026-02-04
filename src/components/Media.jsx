@@ -16,7 +16,7 @@ export default function Media({ mediaData, trailers }) {
   }
   return (
     <section className="media-container">
-      <section>
+      <section style={{ width: "100%" }}>
         <figure
           className="media-poster"
           style={{ backgroundImage: `url(${moviePosterPath})` }}
@@ -60,13 +60,12 @@ export default function Media({ mediaData, trailers }) {
             <div>
               <iframe
                 key={clip.link}
-                className="iframe-clip"
                 src={clip.link}
                 title={clip.name}
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen={true}
               ></iframe>
-              <p>{clip.name}</p>
+              <p className="iframe-title">{clip.name}</p>
               <p>type: {clip.type}</p>
             </div>
           ))}
