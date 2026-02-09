@@ -69,20 +69,16 @@ ol {
   --button-padding: 3px;
   --button-margin: 10px 5px;
 }
-.app-logo {
-  display: flex;
-  width: 100px;
-  height: auto;
-  padding: 0px;
-  margin: 10px;
-  background-color: rgba(255, 255, 255, 1);
-  color: #d35400;
-}
-.logo-text,
-.logo-image {
+.logo-text {
   display: flex;
   font-family: "Inter" sans-serif;
   font-weight: bold;
+  color: #d35400;
+  display: flex;
+  justify-content: center;
+  width: 170;
+  padding: 10px;
+  margin: 5px;
 }
 .sign-up-button {
   padding: var(--button-padding);

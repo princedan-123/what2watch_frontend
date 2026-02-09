@@ -3,7 +3,7 @@ import UpcomingMovies from "./pages/UpcomingMovies";
 import { createRoot } from "react-dom/client";
 import PopularTvseries from "./pages/PopularTvseries";
 import TrendingMovies from "./pages/TrendingMovies";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import "./styles/index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -17,7 +17,7 @@ import MovieDetails from "./pages/MovieDetail";
 import RootPage from "./pages/RootPage";
 import TvshowDetails from "./pages/TvshowDetails";
 import UpcomingTvseries from "./pages/UpcomingTvseries";
-
+import SearchPage from "./pages/SearchPage";
 const routeData = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -26,6 +26,7 @@ const routeData = createBrowserRouter(
           index
           element={<Navigate to="movies/trending-movies" replace />}
         />
+        <Route path={"/search"} element={<SearchPage />} />
         <Route path="movies/trending-movies" element={<TrendingMovies />} />
         <Route path="movies/upcoming-movies" element={<UpcomingMovies />} />
         <Route path="movies/popular-movies" element={<PopularMovies />} />
@@ -45,6 +46,6 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
-    <RouterProvider router={routeData} />
+    <RouterProvider router={routeData}></RouterProvider>
   </QueryClientProvider>,
 );

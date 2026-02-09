@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "../styles/index.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchForm() {
-  const [initialInput, setInitial_Input] = useState("");
-  const [finalSearchInput, setFinalSearchInput] = useState(null);
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("");
   function handleInput(event) {
-    const inputValue = event.target.value();
-    setInitial_Input(inputValue);
+    const inputValue = event.target.value;
+    setSearchValue(inputValue);
   }
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    setFinalSearchInput(initialInput);
+  function handleFormSubmit() {
+    navigate(`/search?q=${searchValue}`);
   }
   return (
     <section>
-      <form className="form" onSubmit={handleFormSubmit}>
+      <form className="form" action={handleFormSubmit}>
         <input type="text" className="search-form" onChange={handleInput} />
         <button type="submit" className="button">
           Search
